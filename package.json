@@ -1,0 +1,44 @@
+{
+  "name": "emoji-kitchen-api",
+  "version": "0.1.0",
+  "description": "Simple Emoji Kitchen API",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node --watch app.js",
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/srmngp/emoji-kitchen-api.git"
+  },
+  "keywords": [
+    "Emoji",
+    "Kitchen",
+    "EmojiKitchen",
+    "node",
+    "express"
+  ],
+  "author": "srmngp",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/srmngp/emoji-kitchen-api/issues"
+  },
+  "homepage": "https://github.com/srmngp/emoji-kitchen-api#readme",
+  "dependencies": {
+    "express": "4.18.2"
+  },
+  "devDependencies": {
+    "chai": "^4.3.8",
+    "chai-http": "^4.4.0",
+    "mocha": "^10.2.0",
+    "standard": "^17.1.0"
+  },
+  "eslintConfig": {
+    "extends": "standard",
+    "rules": {
+      "padded-blocks": "off"
+    }
+  }
+}
