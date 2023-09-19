@@ -8,7 +8,7 @@
     "start": "node index.js",
     "dev": "node --watch index.js",
     "test": "mocha --recursive",
-    "vercel-build": "Hello!! We're running!"
+    "vercel-build": "echo Hello!"
   },
   "repository": {
     "type": "git",
