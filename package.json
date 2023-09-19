@@ -2,12 +2,13 @@
   "name": "emoji-kitchen-api",
   "version": "0.1.0",
   "description": "Simple Emoji Kitchen API",
-  "main": "index.js",
+  "main": "api/index.js",
   "type": "module",
   "scripts": {
     "start": "node index.js",
     "dev": "node --watch index.js",
-    "test": "mocha --recursive"
+    "test": "mocha --recursive",
+    "vercel-build": "Hello!! We're running!"
   },
   "repository": {
     "type": "git",
