@@ -11,8 +11,7 @@
             "dest": "/"
         }
     ],
-    "files": [
-        "emoji_mixes.json",
-        "supported_emojis.json"
+    "includeFiles": [
+        "*.json"
     ]
 }
