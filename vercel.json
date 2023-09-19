@@ -11,7 +11,9 @@
             "dest": "/"
         }
     ],
-    "includeFiles": [
-        "*.json"
-    ]
+    "functions": {
+        "index.js": {
+          "includeFiles": "*.json"
+        }
+      }
 }
