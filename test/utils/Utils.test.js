@@ -1,5 +1,5 @@
 import { expect } from 'chai'
-import { readJSON } from '../../src/utils/utils.js'
+import { readJSON } from '../../src/db/utils.js'
 import { describe, it } from 'mocha'
 
 describe('Utils', () => {
