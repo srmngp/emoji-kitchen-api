@@ -2,11 +2,11 @@
   "name": "emoji-kitchen-api",
   "version": "0.1.0",
   "description": "Simple Emoji Kitchen API",
-  "main": "app.js",
+  "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node app.js",
-    "dev": "node --watch app.js",
+    "start": "node index.js",
+    "dev": "node --watch index.js",
     "test": "mocha --recursive"
   },
   "repository": {
