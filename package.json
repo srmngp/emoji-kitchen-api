@@ -2,7 +2,7 @@
   "name": "emoji-kitchen-api",
   "version": "0.1.0",
   "description": "Simple Emoji Kitchen API",
-  "main": "api/index.js",
+  "main": "index.js",
   "type": "module",
   "scripts": {
     "start": "node index.js",
