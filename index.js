@@ -1,6 +1,7 @@
 import express from 'express'
 import { mixRouter } from './src/routes/MixRouter.js'
 import { rootRouter } from './src/routes/RootRouter.js'
+import { emojiRouter } from './src/routes/EmojiRouter.js'
 
 export const app = express()
 
@@ -8,6 +9,7 @@ app.disable('x-powered-by')
 
 app.use('/', rootRouter)
 app.use('/mix', mixRouter)
+app.use('/emoji', emojiRouter)
 
 app.use((err, req, res, next) => {
   console.error(err)
