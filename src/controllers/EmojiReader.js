@@ -5,7 +5,7 @@ export class EmojiReader {
 
   static getRandomMix () {
     const randomIndex = Math.floor(Math.random() * emojiList.length)
-    const randomEmoji = emojiList[randomIndex].unicode
+    const randomEmoji = emojiList[randomIndex].hexValue
 
     const emojiMixes = allEmojiMixes[0][randomEmoji]
 
@@ -27,7 +27,7 @@ export class EmojiReader {
       .map(mix => mix.leftEmoji !== emojiUnicode ? mix.leftEmoji : mix.rightEmoji)
       .filter((value, index, self) => self.indexOf(value) === index)
 
-    return emojiList.filter(emoji => emojiCombinations.includes(emoji.unicode))
+    return emojiList.filter(emoji => emojiCombinations.includes(emoji.hexValue))
   }
 
 }

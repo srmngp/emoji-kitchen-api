@@ -59,12 +59,13 @@ describe('EmojiController', () => {
         end: sinon.spy()
       }
 
-      EmojiController.getEmojiCombinations({ params: { unicode: '2648' } }, res)
+      EmojiController.getEmojiCombinations({ params: { emoji: '2648' } }, res)
 
       expect(res.setHeader.calledWith('Content-Type', 'application/json')).to.be.true
-      expect(res.end.firstCall.args)
+      const combinations = JSON.parse(res.end.firstCall.args[0])
+      expect(combinations)
         .to.be.a('array')
-        .and.not.to.be.empty
+        .and.to.have.lengthOf.at.least(1)
     })
 
     it('should fill http response with status code 500 when an error occurs', () => {
@@ -74,7 +75,7 @@ describe('EmojiController', () => {
         send: sinon.spy()
       }
 
-      EmojiController.getEmojiCombinations({ params: { unicode: '2648' } }, res)
+      EmojiController.getEmojiCombinations({ params: { emoji: '2648' } }, res)
 
       expect(res.status.calledWith(500)).to.be.true
     })
@@ -86,9 +87,23 @@ describe('EmojiController', () => {
         send: sinon.spy()
       }
 
-      EmojiController.getEmojiCombinations({ params: { unicode: '2648' } }, res)
+      EmojiController.getEmojiCombinations({ params: { emoji: '2648' } }, res)
 
       expect(res.send.calledWith('Error obtaining emoji combinations')).to.be.true
+    })
+
+    it('should accept emojis as param', () => {
+      const res = {
+        setHeader: sinon.stub().returnsThis(),
+        end: sinon.spy()
+      }
+
+      EmojiController.getEmojiCombinations({ params: { emoji: '🎷' } }, res)
+
+      const combinations = JSON.parse(res.end.firstCall.args[0])
+      expect(combinations)
+        .to.be.a('array')
+        .and.to.have.lengthOf.at.least(1)
     })
 
   })

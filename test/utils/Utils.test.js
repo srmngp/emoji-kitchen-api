@@ -1,5 +1,6 @@
+/* eslint-disable no-unused-expressions */
 import { expect } from 'chai'
-import { readJson } from '../../src/utils/utils.js'
+import { getHexValue, isEmoji, readJson } from '../../src/utils/utils.js'
 import { describe, it } from 'mocha'
 
 describe('Utils', () => {
@@ -20,6 +21,56 @@ describe('Utils', () => {
       const readJSONWrapper = () => readJson(jsonPath)
 
       expect(readJSONWrapper).to.throw('ENOENT: no such file or directory')
+    })
+
+  })
+
+  describe('isEmoji', () => {
+
+    it('should return true if string is emoji', () => {
+      const emoji = '🕷️'
+
+      expect(isEmoji(emoji)).to.be.true
+    })
+
+    it('should return false if string is not emoji', () => {
+      const emoji = '2648'
+
+      expect(isEmoji(emoji)).to.be.false
+    })
+
+  })
+
+  describe('getHexValue', () => {
+
+    it('should return hex value if param is an emoji with', () => {
+      const emoji = '🎷'
+
+      expect(getHexValue(emoji)).to.be.equal('1f3b7')
+    })
+
+    it('should return hex value if param is an emoji with variation selectors', () => {
+      const emoji = '🕷️'
+
+      expect(getHexValue(emoji)).to.be.equal('1f577-fe0f') // 1f577-fe0f
+    })
+
+    it('should return param value if it is the hexadecimal value', () => {
+      const emoji = '2648'
+
+      expect(getHexValue(emoji)).to.be.equal('2648')
+    })
+
+    it('should return param value if it is the hexadecimal value with U+', () => {
+      const emoji = 'U+1F577'
+
+      expect(getHexValue(emoji)).to.be.equal('1f577')
+    })
+
+    it('should return param value to lower case', () => {
+      const emoji = 'U+1F577'
+
+      expect(getHexValue(emoji)).to.be.equal('1f577')
     })
 
   })
