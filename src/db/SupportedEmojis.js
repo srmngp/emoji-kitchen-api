@@ -1,4 +1,4 @@
-export const supportedEmojis = [
+export const emojiList = [
   { unicode: '1fa84', emoji: '🪄' },
   { unicode: '1f600', emoji: '😀' },
   { unicode: '1f603', emoji: '😃' },

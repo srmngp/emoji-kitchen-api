@@ -14,4 +14,17 @@ export class EmojiController {
     }
   }
 
+  static getEmojiCombinations (req, res) {
+    try {
+      const emojiUnicode = req.params.unicode
+      const emojiCombinations = EmojiReader.getEmojiCombinations(emojiUnicode)
+      res.setHeader('Content-Type', 'application/json')
+      res.end(JSON.stringify(emojiCombinations))
+
+    } catch (error) {
+      res.status(500).send('Error obtaining emoji combinations')
+      console.error(error)
+    }
+  }
+
 }
