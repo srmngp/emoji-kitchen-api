@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "node --watch index.js",
-    "test": "mocha --recursive",
+    "test": "mocha --recursive --exit",
     "vercel-build": "echo Hello!"
   },
   "repository": {

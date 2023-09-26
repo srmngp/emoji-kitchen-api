@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export class EmojiFetcher {
 
-  static async getRandomEmoji (emojiUrl) {
+  static async getEmojiData (emojiUrl) {
     const response = await axios
       .get(emojiUrl, { responseType: 'arraybuffer' })
       .catch(error => {

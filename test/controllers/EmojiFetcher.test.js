@@ -17,7 +17,7 @@ describe('EmojiFetcher', () => {
     it('should return emoji data', async () => {
       sinon.stub(axios, 'get').resolves({ data: emojiData })
 
-      const result = await EmojiFetcher.getRandomEmoji(emojiUrl)
+      const result = await EmojiFetcher.getEmojiData(emojiUrl)
 
       sinon.assert.calledOnceWithExactly(axios.get, emojiUrl, { responseType: 'arraybuffer' })
       expect(result).to.equal(emojiData)
@@ -28,7 +28,7 @@ describe('EmojiFetcher', () => {
     it('should throw errors', async () => {
       const emojiUrl = 'THIS_IS_A_INVALID_URL'
 
-      expect(EmojiFetcher.getRandomEmoji(emojiUrl)).to.be.rejectedWith(Error)
+      expect(EmojiFetcher.getEmojiData(emojiUrl)).to.be.rejectedWith(Error)
     })
 
   })

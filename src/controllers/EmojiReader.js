@@ -30,4 +30,13 @@ export class EmojiReader {
     return emojiList.filter(emoji => emojiCombinations.includes(emoji.hexValue))
   }
 
+  static findMix (paramMix) { // TODO test cornercases
+    const mixes = allEmojiMixes[0][paramMix.emoji1]
+    if (!mixes) {
+      return null
+    }
+
+    return mixes.find(mix => mix.leftEmoji === paramMix.emoji2 || mix.rightEmoji === paramMix.emoji2) || null
+  }
+
 }

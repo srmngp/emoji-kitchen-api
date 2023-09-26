@@ -1,7 +1,8 @@
 /* eslint-disable no-unused-expressions */
 import { expect } from 'chai'
-import { getHexValue, isEmoji, readJson } from '../../src/utils/utils.js'
+import { getHexValue, isSupportedEmoji, readJson } from '../../src/utils/utils.js'
 import { describe, it } from 'mocha'
+import { emojiList } from '../../src/db/SupportedEmojis.js'
 
 describe('Utils', () => {
 
@@ -28,22 +29,22 @@ describe('Utils', () => {
   describe('isEmoji', () => {
 
     it('should return true if string is emoji', () => {
-      const emoji = '🕷️'
-
-      expect(isEmoji(emoji)).to.be.true
+      emojiList.forEach(emoji => {
+        expect(isSupportedEmoji(emoji.emoji)).to.be.true
+      })
     })
 
     it('should return false if string is not emoji', () => {
       const emoji = '2648'
 
-      expect(isEmoji(emoji)).to.be.false
+      expect(isSupportedEmoji(emoji)).to.be.false
     })
 
   })
 
   describe('getHexValue', () => {
 
-    it('should return hex value if param is an emoji with', () => {
+    it('should return hex value if param is an emoji', () => {
       const emoji = '🎷'
 
       expect(getHexValue(emoji)).to.be.equal('1f3b7')
@@ -52,7 +53,7 @@ describe('Utils', () => {
     it('should return hex value if param is an emoji with variation selectors', () => {
       const emoji = '🕷️'
 
-      expect(getHexValue(emoji)).to.be.equal('1f577-fe0f') // 1f577-fe0f
+      expect(getHexValue(emoji)).to.be.equal('1f577-fe0f')
     })
 
     it('should return param value if it is the hexadecimal value', () => {

@@ -8,14 +8,12 @@ export const readJson = (pathToFile) => {
   return JSON.parse(fileContent)
 }
 
-export const isEmoji = (emoji) => {
-  const emojiRegex = /[\u{1F000}-\u{1F6FF}]/u
-  return emojiRegex.test(emoji)
+export const isSupportedEmoji = (emoji) => {
+  return emojiList.some(emojiObj => emojiObj.emoji === emoji)
 }
 
 export const getHexValue = (strParam) => {
-  if (isEmoji(strParam)) {
-    // return strParam.codePointAt(0).toString(16)
+  if (isSupportedEmoji(strParam)) {
     return emojiList.find(emoji => emoji.emoji === strParam).hexValue
   }
 
