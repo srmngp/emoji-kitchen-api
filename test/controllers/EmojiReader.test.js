@@ -38,7 +38,7 @@ describe('EmojiReader', () => {
 
       expect(combinations)
         .to.be.an('array')
-        .and.to.have.lengthOf(37)
+        .and.to.have.lengthOf(41)
       expect(combinations).to.include.deep(
         { hexValue: '1fa84', emoji: '🪄' },
         { hexValue: '1f602', emoji: '😂' },
@@ -58,7 +58,7 @@ describe('EmojiReader', () => {
 
       expect(combinations)
         .to.be.an('array')
-        .and.to.have.lengthOf(37)
+        .and.to.have.lengthOf(41)
       expect(combinations).to.include.deep(
         { hexValue: '1fa84', emoji: '🪄' },
         { hexValue: '2665-fe0f', emoji: '♥️' },
