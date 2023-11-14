@@ -28,6 +28,7 @@ This will start the project on <http://localhost:3000> by default, or on the por
 - GET [/emoji/:emoji/combinations](https://emoji-kitchen-api.vercel.app/emoji/👻/combinations): Returns a list of emoji combinations for a specific emoji.
 - GET [/mix/random](https://emoji-kitchen-api.vercel.app/mix/random): Returns a random emoji mix.
 - GET [/mix/:emoji1/:emoji2](https://emoji-kitchen-api.vercel.app/mix/👻/🏍️): Returns a specific emoji mix.
+- GET [/mix/random-url](https://emoji-kitchen-api.vercel.app/mix/random-url): Returns a random emoji mix url.
 
 ## Tests
 

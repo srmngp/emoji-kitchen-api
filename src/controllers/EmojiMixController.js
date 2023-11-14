@@ -20,6 +20,19 @@ export class EmojiMixController {
     }
   }
 
+  static async getRandomMixUrl (req, res) {
+    try {
+      const mix = EmojiReader.getRandomMix()
+      const emojiUrl = UrlGenerator.getUrlFromMix(mix)
+      res.json({
+        url: emojiUrl
+      })
+    } catch (error) {
+      res.status(500).send('Error obtaining mix url')
+      console.error(error)
+    }
+  }
+
   static async getMix (req, res) { // TODO refactor this
     console.log('getMix', req.params)
     try {

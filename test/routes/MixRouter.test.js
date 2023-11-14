@@ -45,3 +45,25 @@ describe('GET /mix/:emoji1/:emoji2', () => {
   })
 
 })
+
+describe('GET /mix/random-url', () => {
+
+  afterEach(() => {
+    sinon.restore()
+  })
+
+  it('should return a url', (done) => {
+    sinon.stub(EmojiReader, 'getRandomMix').returns({ leftEmoji: '2763-fe0f', rightEmoji: '2649', date: '20220203' })
+
+    chai.request(app).get('/mix/random-url')
+      .end((err, res) => {
+        if (err) done(err)
+
+        res.should.have.status(200)
+        res.body.should.have.property('url')
+        res.body.url.should.be.a('string')
+        done()
+      })
+  })
+
+})
